@@ -5,7 +5,7 @@ import './App.css'
 function App() {
 
 useEffect(()=>{
-fetch('https://social-network.samuraijs.com/api/1.0/users')
+fetch('https://social-network.samuraijs.com/api/1.0/users?count=100')
 .then((res)=>res.json())
 .then(res=>console.log(res))
 

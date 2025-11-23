@@ -1,13 +1,15 @@
 import { useEffect, useState } from 'react'
 
 import './App.css'
+import { useDispatch, useSelector } from 'react-redux'
+import { SocialAPI } from './api/api'
 
 function App() {
+ const dispatch= useDispatch()
+const {users}=useSelector((state)=>state.usersData)
 
 useEffect(()=>{
-fetch('https://social-network.samuraijs.com/api/1.0/users?count=100')
-.then((res)=>res.json())
-.then(res=>console.log(res))
+SocialAPI.getUsers(dispatch)
 
 },[])
   return (

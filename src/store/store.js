@@ -3,4 +3,4 @@ import usersReducer from "./reducers/usersReducer";
 const rootReducer= combineReducers({
     usersData:usersReducer
 })
-export const store = createStore(usersReducer)
+export const store = createStore(rootReducer)

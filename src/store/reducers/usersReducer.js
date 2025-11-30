@@ -1,6 +1,6 @@
 const GET_USERS = "get/users";
 const initState = {
-  users: [],
+  users:[],
 };
 const usersReducer = (state = initState, action) => {
   switch (action.type) {

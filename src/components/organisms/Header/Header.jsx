@@ -13,7 +13,8 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import InstagramIcon from '@mui/icons-material/Instagram';
-const pages = ['Products', 'Pricing', 'Blog'];
+import { NavLink } from 'react-router-dom';
+const pages = [{title:"Home",path:'/'},{title:"Users", path:'/users'} ];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 export function Header() {
@@ -86,8 +87,8 @@ export function Header() {
               sx={{ display: { xs: 'block', md: 'none' } }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography sx={{ textAlign: 'center' }}>{page}</Typography>
+                <MenuItem key={page.path} onClick={handleCloseNavMenu}>
+                  <Typography sx={{ textAlign: 'center' }}>{page.title}</Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -111,14 +112,16 @@ export function Header() {
           >
             LOGO
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' ,gap :'30px'} }}>
             {pages.map((page) => (
               <Button
-                key={page}
-                onClick={handleCloseNavMenu}
+              component={NavLink}
+              to={page.path}
+                key={page.path}
+             variant='contained'
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                {page}
+                {page.title}
               </Button>
             ))}
           </Box>

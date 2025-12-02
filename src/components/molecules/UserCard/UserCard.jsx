@@ -5,6 +5,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import userImg from '../../../assets/image/User-Avatar-Profile-PNG-Photos.png'
+import { NavLink } from 'react-router-dom';
 export function UserCard({ user }) {
 
   return (
@@ -21,8 +22,8 @@ export function UserCard({ user }) {
         
       </CardContent>
       <CardActions>
-        <Button variant='contained' size="small">Share</Button>
-        <Button variant='contained' size="small">Learn More</Button>
+        <Button variant='contained' size="small">Follow</Button>
+        <Button component={NavLink} to={'/'} variant='contained' size="small">View Profile</Button>
       </CardActions>
     </Card>
   );

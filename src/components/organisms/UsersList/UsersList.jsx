@@ -3,7 +3,7 @@ import { UserCard } from '../../molecules/UserCard/UserCard'
 import { Box, Pagination } from '@mui/material'
 import { useDispatch, useSelector } from 'react-redux'
 import { changePageAC } from '../../../store/reducers/usersReducer'
-
+import '..//../organisms/UsersList/UserList.css'
 export const UsersList = ({ users }) => {
   const dispatch = useDispatch()
 
@@ -24,10 +24,23 @@ export const UsersList = ({ users }) => {
   return (
     <Box>
 
-      <Box>
-        <Pagination 
-        onChange={changePage}
-        defaultPage={currentPage} count={pageCount} color="primary" />
+      <Box className='page'>
+       <Pagination
+  onChange={changePage}
+  page={currentPage}
+  count={pageCount}
+  color="secondary"
+  sx={{
+    '& .MuiPaginationItem-root': {
+      color: 'white',
+      fontWeight: 'bold',
+    },
+    '& .Mui-selected': {
+      backgroundColor: '#1976d2',
+      color: 'white',
+    },
+  }}
+/>
       </Box>
 
       <Box

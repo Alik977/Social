@@ -11,23 +11,31 @@ const authReducer = (state = initState, action) => {
         case LOGIN :
             return {
                 ...state,
-                userId : action.paylaod
+                userId : action.payload
             }
         default :
             return state
     }
 }
 
-const loginAC = (data) => ({type : LOGIN, paylaod : data})
-
+const loginAC = (data) => ({ type : LOGIN, payload : data }) 
 
 export const loginThunk = (body) => {
     return (dispatch) => {
         SocialAPI.login(body)
             .then((res) => {
-                dispatch(loginAC(res.data.data.userId))
-           
+                console.log("LOGIN RESPONSE => ", res.data);
+
+                if (res.data.resultCode === 0) {
+                    const id = res.data.data.userId;
+
+                    localStorage.setItem("userId", id); 
+                    
+                    dispatch(loginAC(id));
+                }
             })
     }
 }
+
+
 export default authReducer

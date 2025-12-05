@@ -17,9 +17,9 @@ export const Home = () => {
   const handleSubmit = (e) => {
     e.preventDefault()
 
-  
+
     let body = {email, password}
-    dispatch(loginThunk({email : 'alik.hakobyan.sh@gmail.com', password : 'alik977'}))
+    dispatch(loginThunk({email : 'alikhakobyanshotayi97@gmail.com', password : 'alik1997'}))
     setA(() => true)
   }
 
@@ -28,11 +28,11 @@ export const Home = () => {
   }
   
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <input value={email} onChange={(e) => setEmail(e.target.value)} placeholder="email" type="text" />
-        <input value={password} onChange={(e) => setPassword(e.target.value)} placeholder="password" type="password" />
-        <button>Login</button>
+    <div >
+      <form onSubmit={handleSubmit} className="login">
+        <input value={email} onChange={(e) => setEmail(e.target.value)} className="login1" placeholder="email" type="text" />
+        <input value={password} onChange={(e) => setPassword(e.target.value)} className="login1" placeholder="password" type="password" />
+        <button>📲</button>
       </form>
     </div>
   )

@@ -1,3 +1,8 @@
 body{
     background-image: url(..//..//..//assets/image/back.jpeg);
 }
+.login{
+    display: flex;
+    gap: 40px;
+    
+}
